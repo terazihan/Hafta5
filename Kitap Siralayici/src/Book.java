@@ -13,13 +13,13 @@ class Book implements Comparable<Book> {
         this.publicationDate = publicationDate;
     }
 
-    // Override compareTo method to sort books by title (A to Z)
+    // Kitapları başlığa göre sıralamak için CompareTo yöntemini geçersiz kıldık (A'dan Z'ye)
     @Override
     public int compareTo(Book other) {
         return this.title.compareTo(other.title);
     }
 
-    // Getter methods for Book class properties
+    // Book sınıfı özellikleri için alıcı yöntemleri
     public String getTitle() {
         return title;
     }
@@ -36,16 +36,16 @@ class Book implements Comparable<Book> {
         return publicationDate;
     }
 
-    // Main method to demonstrate sorting books
+    // Kitaplardaki sıralamayı gösterme yöntemi
     public static void main(String[] args) {
-        // Create 5 Book objects
-        Book book1 = new Book("Book E", 200, "Author E", new Date());
-        Book book2 = new Book("Book D", 150, "Author D", new Date());
-        Book book3 = new Book("Book C", 300, "Author C", new Date());
-        Book book4 = new Book("Book B", 250, "Author B", new Date());
-        Book book5 = new Book("Book A", 180, "Author A", new Date());
+        // 5 Kitap nesnesi oluşturduk
+        Book book1 = new Book("Bir Yazılımcı Öyküsü", 117, "Author Erhan Yildirim", new Date());
+        Book book2 = new Book("Çocukluğum", 145, "Author Doruk Yildirim", new Date());
+        Book book3 = new Book("Şarkılarda Hüzün Var", 80, "Author Ceylan Neylan", new Date());
+        Book book4 = new Book("Dönence", 258, "Author Barış Manço", new Date());
+        Book book5 = new Book("Anne Olmak Üzerine", 171, "Author Aslı Coşkun Yıldırım", new Date());
 
-        // Create a TreeSet to store books sorted by title
+        // Kitapları başlığa göre sıralanmış olarak depolamak için bir TreeSet oluşturduk
         Set<Book> booksByTitle = new TreeSet<>();
         booksByTitle.add(book1);
         booksByTitle.add(book2);
@@ -53,13 +53,13 @@ class Book implements Comparable<Book> {
         booksByTitle.add(book4);
         booksByTitle.add(book5);
 
-        // Print books sorted by title
+        // Kitapları başlığa göre sıralanmış olarak yazdırma
         System.out.println("Books sorted by title (A to Z):");
         for (Book book : booksByTitle) {
             System.out.println(book.getTitle());
         }
 
-        // Create a TreeSet to store books sorted by page count
+        // Sayfa sayısına göre sıralanmış kitapları depolamak için bir TreeSet oluşturduk
         Set<Book> booksByPageCount = new TreeSet<>(Comparator.comparingInt(Book::getPageCount));
         booksByPageCount.add(book1);
         booksByPageCount.add(book2);
@@ -67,7 +67,7 @@ class Book implements Comparable<Book> {
         booksByPageCount.add(book4);
         booksByPageCount.add(book5);
 
-        // Print books sorted by page count
+        // Kitapları sayfa sayısına göre sıralanmış olarak yazdırma
         System.out.println("\nBooks sorted by page count:");
         for (Book book : booksByPageCount) {
             System.out.println(book.getTitle() + " - " + book.getPageCount() + " pages");
